@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>สุขสันต์วันเกิดย้อนหลัง 🎂</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Kanit', sans-serif;
+      background: linear-gradient(135deg, #f8dfff, #ffe6e6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .container {
+      background: #fff0f5;
+      padding: 30px;
+      border-radius: 25px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.1);
+      max-width: 420px;
+    }
+
+    h1 {
+      font-size: 2em;
+      color: #cc6699;
+    }
+
+    p {
+      font-size: 1.1em;
+      color: #333;
+      margin: 15px 0;
+    }
+
+    button {
+      background: #cc6699;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 1em;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+
+    button:hover {
+      background: #b24d80;
+    }
+
+    .cake {
+      display: none;
+      margin-top: 20px;
+    }
+
+    .balloon {
+      position: absolute;
+      width: 40px;
+      height: 60px;
+      background-color: pink;
+      border-radius: 50%;
+      animation: fall 5s linear;
+      opacity: 0.8;
+    }
+
+    @keyframes fall {
+      0% {
+        top: -100px;
+        opacity: 1;
+      }
+      100% {
+        top: 100vh;
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>สุขสันต์วันเกิดย้อนหลัง! 🎉</h1>
+    <p>ขอโทษที่ช้าไปนิด... 🥲<br>แต่คำอวยพรนี้มาจากใจจริง 💖</p>
+    <button onclick="showSurprise()"> กดที่นี่เพื่อเป่าเค้ก</button>
+
+    <div class="cake" id="cake">
+      <img src="https://img.lovepik.com/png/20231116/three-dimensional-birthday-cake-dessert-draft-beer-delicious-cake-Yama_608943_wh1200.png" alt="เค้กวันเกิด" width="200"/>
+      <p> ถึงจะมาช้าไปหน่อย...
+แต่อวยพรนี้มาจากใจไม่แพ้ใครเลยนะ :)
+ขอให้ปีนี้เป็นปีที่ดี เต็มไปด้วยรอยยิ้ม
+สุขภาพแข็งแรง เจอแต่สิ่งดีๆ คนดีๆ
+สมหวังในทุกเรื่องที่ตั้งใจ
+และมีความสุขมากๆ ในทุกๆ วันเลยนะ 💖🎂💫</p>
+    </div>
+  </div>
+
+  <script>
+    function showSurprise() {
+      document.getElementById("cake").style.display = "block";
+
+      // ลูกโป่งสุ่มสี 20 ลูก
+      for (let i = 0; i < 20; i++) {
+        let balloon = document.createElement("div");
+        balloon.classList.add("balloon");
+        balloon.style.left = Math.random() * window.innerWidth + "px";
+        balloon.style.backgroundColor = getRandomColor();
+        balloon.style.animationDuration = (3 + Math.random() * 2) + "s";
+        document.body.appendChild(balloon);
+        setTimeout(() => balloon.remove(), 6000);
+      }
+    }
+
+    function getRandomColor() {
+      const colors = ["#ff99cc", "#ffcc66", "#66ccff", "#99ff99", "#ff6666", "#ccccff"];
+      return colors[Math.floor(Math.random() * colors.length)];
+    }
+  </script>
+</body>
+</html>
